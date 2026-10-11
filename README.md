@@ -19,7 +19,27 @@ python fleet_planner.py --robots 12 --waves 5 --seed 3   # bigger fleet
 
 ## Results
 
-<!-- paste your SUMMARY lines here -->
+```
+Warehouse 21x31, 8 robots, 3 waves of 8 orders (seed 7)
+
+wave 1: trip cost greedy 570 vs Hungarian 536 (6.0% shorter) | naive conflicts 12 | prioritized conflicts 0, makespan 88, extra wait steps 2, 8 ms
+wave 2: trip cost greedy 536 vs Hungarian 490 (8.6% shorter) | naive conflicts 12 | prioritized conflicts 0, makespan 80, extra wait steps 12, 8 ms
+wave 3: trip cost greedy 520 vs Hungarian 482 (7.3% shorter) | naive conflicts 12 | prioritized conflicts 0, makespan 76, extra wait steps 43, 19 ms
+
+SUMMARY
+  Allocation: Hungarian total travel 1508 cells vs greedy 1626 (7.3% less travel)
+  Collisions: naive shortest paths 36 (16 same-cell, 20 head-on) vs prioritized planner 0
+  Cost of avoiding collisions: 57 extra steps out of 1613 (3.5%)
+  Planning time: 12 ms per wave on average
+```
+
+**12 robots, 5 waves:**
+```
+Allocation: Hungarian total travel 3424 cells vs greedy 3782 (9.5% less travel)
+  Collisions: naive shortest paths 154 (129 same-cell, 25 head-on) vs prioritized planner 0
+  Cost of avoiding collisions: 409 extra steps out of 3953 (10.3%)
+  Planning time: 32 ms per wave on average
+```
 
 ## How it works
 
